@@ -36,15 +36,29 @@ Why not just JS?
 -----
 
 Access to DOM, cookies, localStorage, makes for easier,
-well-understood client state management. Also, HTML+JS lets us shim
-this and thus make this approach much more easily to develop against:
+well-understood client state management. Also, HTML+JS lets us shim,
+which makes developing against these APIs dramatically easier. The
+following could run in any modern web browser:
 
 ```html
 <head><title>Contacts Service</title>
+
+// shims window.servicePort
 <script src="https://jswebservic.es/include.js"></script>
+
 <script>
 // receive messages
 window.servicePort.onmessage = function(message) {
 
 }
+
+// are we shimmed and have utilities?
+// let's run some tests
+if (window.servicePort.utils) {
+   window.servicePort.utils.runTestSuite('contacts');
+}
+
+</script>
+</head>
+<body></body>
 ```
