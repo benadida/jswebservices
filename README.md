@@ -75,7 +75,7 @@ Service is the backend provider of this contacts data.
 Firefox's internal code looks like:
 
 ```js
-instantiateJSWebService("https://mycontacts.example.com/services/contacts", function(servicePort) {
+JSWebService.instantiate("https://mycontacts.example.com/services/contacts", function(servicePort) {
   servicePort.on("updateContacts", function(contacts) {
     // received contacts, new, or updated,
     // store them locally

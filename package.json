@@ -1,0 +1,20 @@
+{
+  "name": "jswebservices",
+  "version": "0.0.1",
+  "description": "What if web services were exposed as a `MessageChannel` interface between the client and an ambassador HTML/JS frame loaded from the service?  The client must then be a full web runtime. That's okay, since in many cases the client is actually a web browser, or easily has access to a web runtime (iOS, Android, Firefox OS.)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/benadida/jswebservices"
+  },
+  "author": "Ben Adida",
+  "license": "MPL2",
+  "readmeFilename": "README.md",
+  "gitHead": "e4b37ee24a930ce15a3cb21838bd5cba6079593a",
+  "dependencies": {
+    "hapi": "~0.15.6"
+  }
+}
