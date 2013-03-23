@@ -198,14 +198,26 @@
 
 //////
 
-var JSWebServicePort = function(origin, frame) {
+var JSWebServicePort = function(service) {
+  this.service = service;
+  this.callbacks = {};
 };
 
 JSWebServicePort.prototype = {
   on: function(message, cb) {
+    this.callbacks[message] = cb;
   },
 
   emit: function(message, payload) {
+    var completeMessage = {type: message, payload: payload};
+    this.service.frame.contentWindow.postMessage(completeMessage, this.service.origin);
+  },
+
+  // raw postMessage message
+  receiveMessage: function(message) {
+    var cb = this.callbacks[message.type];
+    if (cb)
+      cb(message.payload);
   }
 };
 
@@ -237,10 +249,13 @@ var JSWebService = (function() {
 
       // ready to roll
       callback(service.port);
+
+      // done
+      return;
     }
 
     // service is ready, give it the message
-    service.receiveMessage(e.data);
+    service.port.receiveMessage(e.data);
   });
 
   var SERVICES = {};

@@ -6,7 +6,7 @@ function doit() {
   JSWebService.instantiate("http://localhost:3000/test_service.html", function(servicePort) {
     console.log("ready to go with serviceport!");
     servicePort.on("fromTestService", function(payload) {
-      log("bouncing back " + payload);
+      log("got bounce back " + payload);
     });
 
     servicePort.on("autonomousFromTestService", function(payload) {
