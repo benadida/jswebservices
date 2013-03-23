@@ -128,3 +128,19 @@ ws.onmessage = function(event) {
 Notice interesting wins from having a service ambassador:
 * the ambassador chooses to use websockets, but the `MessageChannel` API definition doesn't need to know. Different services can use different mechanisms.
 * the ambassador can do local caching, maintain some state, load paged data from the server, etc. The `MessageChannel` API doesn't care and can stay simple.
+
+Playing with Code
+-----
+
+You can play with the current code as follows (you need node):
+
+```
+npm install
+npm start
+```
+
+Hit `http://localhost:3000/test.html` with your web browser, notice the console logging.
+
+Take a look at `test_service.js`, which is basically the ambassador's JS.
+
+Take a look at `test.js` for the client's invocation of that service.
